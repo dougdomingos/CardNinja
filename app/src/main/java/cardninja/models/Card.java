@@ -18,7 +18,7 @@ public class Card implements Comparable<Card> {
 
     /**
      * The element of the card. May assume the following values:
-     * {@code fire}, {@code water}, {@code nature}, {@code metal}, {@code earth}
+     * {@code fire}, {@code water}, {@code nature}, {@code wind}, {@code earth}
      */
     private String element;
 
@@ -69,14 +69,14 @@ public class Card implements Comparable<Card> {
 
     /**
      * Sets the element of the card to a specific value. The value must be
-     * one of the following: fire, water, nature, metal or earth
+     * one of the following: fire, water, nature, wind or earth
      * 
      * @param element The element of the card
      * @throws IllegalArgumentException Thrown if the passed element value is
      *                                  invalid
      */
     private void setElement(String element) throws IllegalArgumentException {
-        if (element == null || !element.matches("^(fire|water|nature|metal|earth)$")) {
+        if (element == null || !element.matches("^(fire|water|nature|wind|earth|lightning)$")) {
             throw new IllegalArgumentException("Unknown element was passed!");
         }
 

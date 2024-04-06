@@ -29,8 +29,9 @@ public class CardTest {
         assertDoesNotThrow(() -> new Card(2, "fire"));
         assertDoesNotThrow(() -> new Card(5, "water"));
         assertDoesNotThrow(() -> new Card(7, "nature"));
-        assertDoesNotThrow(() -> new Card(2, "metal"));
-        assertDoesNotThrow(() -> new Card(2, "earth"));
+        assertDoesNotThrow(() -> new Card(2, "wind"));
+        assertDoesNotThrow(() -> new Card(5, "earth"));
+        assertDoesNotThrow(() -> new Card(7, "lightning"));
     }
 
     /**
@@ -38,7 +39,7 @@ public class CardTest {
      */
     @Test
     void testCreateCardInvalidPower() {
-        assertDoesNotThrow(() -> new Card(2, "metal"));
+        assertDoesNotThrow(() -> new Card(2, "wind"));
         assertThrows(IllegalArgumentException.class, () -> new Card(10, "fire"));
     }
 
