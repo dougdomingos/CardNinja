@@ -18,7 +18,8 @@ public class Card implements Comparable<Card> {
 
     /**
      * The element of the card. May assume the following values:
-     * {@code fire}, {@code water}, {@code nature}, {@code wind}, {@code earth}
+     * {@code fire}, {@code water}, {@code nature}, {@code wind}, {@code earth},
+     * {@code lightning}
      */
     private String element;
 
