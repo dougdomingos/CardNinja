@@ -7,6 +7,8 @@ import java.util.Arrays;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import cardninja.utils.Utils;
+
 /**
  * Test class for Deck implementation
  */
@@ -16,7 +18,7 @@ public class DeckTest {
 
     @BeforeEach
     void setUp() {
-        this.deck = new Deck(Arrays.copyOf(gerenateCards(), 14));
+        this.deck = new Deck(Arrays.copyOf(Utils.generateCards(), 14));
     }
 
     /**
@@ -24,9 +26,12 @@ public class DeckTest {
      */
     @Test
     void testCreateDeck() {
-        assertThrows(IllegalArgumentException.class, () -> new Deck(null));
-        assertThrows(IllegalArgumentException.class, () -> new Deck(new Card[] {}));
-        assertThrows(IllegalArgumentException.class, () -> new Deck(gerenateCards()));
+        assertThrows(IllegalArgumentException.class,
+                () -> new Deck(null));
+        assertThrows(IllegalArgumentException.class,
+                () -> new Deck(new Card[] {}));
+        assertThrows(IllegalArgumentException.class,
+                () -> new Deck(Utils.generateCards()));
     }
 
     /**
@@ -81,25 +86,5 @@ public class DeckTest {
 
         assertThrows(IndexOutOfBoundsException.class,
                 () -> deck.replaceCardFromHand(100, newCard));
-    }
-
-    /**
-     * Utility function to generate all the cards of the game (total of 18).
-     * 
-     * @return An array of template cards
-     */
-    private Card[] gerenateCards() {
-        int[] powers = new int[] { 2, 5, 7 };
-        String[] elements = new String[] { "fire", "water", "nature", "wind", "earth", "lightning" };
-        Card[] cards = new Card[powers.length * elements.length];
-
-        int index = 0;
-        for (int i = 0; i < powers.length; i++) {
-            for (int j = 0; j < elements.length; j++) {
-                cards[index++] = new Card(powers[i], elements[j]);
-            }
-        }
-        
-        return cards;
     }
 }

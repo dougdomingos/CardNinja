@@ -1,5 +1,7 @@
 package cardninja.models;
 
+import cardninja.utils.Utils;
+
 /**
  * Implementation of a deck.
  * <p>
@@ -43,7 +45,7 @@ public class Deck {
             throw new IndexOutOfBoundsException("Provided index is out of the hand bounds!");
 
         Card playedCard = this.cards[index];
-        bubbleCard(index);
+        Utils.pushElementToEnd(index, this.cards);
 
         return playedCard;
     }
@@ -70,30 +72,6 @@ public class Deck {
      */
     public Card[] getCards() {
         return this.cards;
-    }
-
-    /**
-     * Moves the card at the provided index to the end of the deck, shifting all
-     * the cards at its right to the left.
-     * 
-     * @param index The index of the played card
-     */
-    private void bubbleCard(int index) {
-        for (int i = index; i < cards.length - 1; i++) {
-            swap(i, i + 1);
-        }
-    }
-
-    /**
-     * Swaps the positions of two cards in the deck.
-     * 
-     * @param i The index of the 1st card
-     * @param j The index of the 2nd card
-     */
-    private void swap(int i, int j) {
-        Card tmpCard = cards[i];
-        cards[i] = cards[j];
-        cards[j] = tmpCard;
     }
 
     /**
