@@ -14,7 +14,7 @@ public class Card implements Comparable<Card> {
      * The power level of the card. May assume the following values:
      * {@code 2}, {@code 5}, {@code 7}
      */
-    private byte power;
+    private int power;
 
     /**
      * The element of the card. May assume the following values:
@@ -39,7 +39,7 @@ public class Card implements Comparable<Card> {
      * 
      * @return the power of the card
      */
-    public byte getPower() {
+    public int getPower() {
         return this.power;
     }
 
@@ -65,7 +65,7 @@ public class Card implements Comparable<Card> {
             throw new IllegalArgumentException("Invalid power level was passed!");
         }
 
-        this.power = (byte) power;
+        this.power = power;
     }
 
     /**
