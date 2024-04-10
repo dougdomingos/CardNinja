@@ -3,6 +3,7 @@ package cardninja.utils;
 import java.util.Random;
 
 import cardninja.models.Card;
+import cardninja.models.Element;
 
 /**
  * Class containing a collection of useful methods.
@@ -15,8 +16,15 @@ public class Utils {
      * @return An array containing all the cards of the game
      */
     public static Card[] generateCards() {
+        Element[] elements = new Element[] {
+                Element.FIRE,
+                Element.WATER,
+                Element.NATURE,
+                Element.WIND,
+                Element.EARTH,
+                Element.LIGHTNING
+        };
         int[] powers = new int[] { 2, 5, 7 };
-        String[] elements = new String[] { "fire", "water", "nature", "wind", "earth", "lightning" };
         Card[] cards = new Card[powers.length * elements.length];
 
         int index = 0;

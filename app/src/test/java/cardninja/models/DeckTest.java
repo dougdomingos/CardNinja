@@ -66,7 +66,7 @@ public class DeckTest {
      */
     @Test
     void testReplaceCardFromHand() {
-        Card newCard = new Card(7, "earth");
+        Card newCard = new Card(7, Element.EARTH);
         deck.replaceCardFromHand(0, newCard);
         assertEquals(deck.getCards()[0], newCard);
     }
@@ -76,7 +76,7 @@ public class DeckTest {
      */
     @Test
     void testReplaceCardFromHandInvalidIndex() {
-        Card newCard = new Card(7, "earth");
+        Card newCard = new Card(7, Element.EARTH);
 
         assertThrows(IndexOutOfBoundsException.class,
                 () -> deck.replaceCardFromHand(-1, newCard));

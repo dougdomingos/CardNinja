@@ -16,9 +16,9 @@ public class CardTest {
 
     @BeforeEach
     void setup() {
-        this.card1 = new Card(5, "nature");
-        this.card2 = new Card(2, "water");
-        this.card3 = new Card(5, "earth");
+        this.card1 = new Card(5, Element.NATURE);
+        this.card2 = new Card(2, Element.WATER);
+        this.card3 = new Card(5, Element.EARTH);
     }
 
     /**
@@ -26,12 +26,12 @@ public class CardTest {
      */
     @Test
     void testCreateCard() {
-        assertDoesNotThrow(() -> new Card(2, "fire"));
-        assertDoesNotThrow(() -> new Card(5, "water"));
-        assertDoesNotThrow(() -> new Card(7, "nature"));
-        assertDoesNotThrow(() -> new Card(2, "wind"));
-        assertDoesNotThrow(() -> new Card(5, "earth"));
-        assertDoesNotThrow(() -> new Card(7, "lightning"));
+        assertDoesNotThrow(() -> new Card(2, Element.FIRE));
+        assertDoesNotThrow(() -> new Card(5, Element.WATER));
+        assertDoesNotThrow(() -> new Card(7, Element.NATURE));
+        assertDoesNotThrow(() -> new Card(2, Element.WIND));
+        assertDoesNotThrow(() -> new Card(5, Element.EARTH));
+        assertDoesNotThrow(() -> new Card(7, Element.LIGHTNING));
     }
 
     /**
@@ -39,8 +39,8 @@ public class CardTest {
      */
     @Test
     void testCreateCardInvalidPower() {
-        assertDoesNotThrow(() -> new Card(2, "wind"));
-        assertThrows(IllegalArgumentException.class, () -> new Card(10, "fire"));
+        assertDoesNotThrow(() -> new Card(2, Element.WIND));
+        assertThrows(IllegalArgumentException.class, () -> new Card(10, Element.FIRE));
     }
 
     /**
@@ -48,8 +48,6 @@ public class CardTest {
      */
     @Test
     void testCreateCardInvalidElement() {
-        assertThrows(IllegalArgumentException.class, () -> new Card(2, "abc"));
-        assertThrows(IllegalArgumentException.class, () -> new Card(2, ""));
         assertThrows(IllegalArgumentException.class, () -> new Card(2, null));
     }
 
@@ -61,7 +59,7 @@ public class CardTest {
         assertTrue(card1.equals(card1));
         assertFalse(card1.equals(card2));
         assertFalse(card1.equals(card3));
-        assertFalse(card1.equals(new Card(7, "nature")));
+        assertFalse(card1.equals(new Card(7, Element.NATURE)));
     }
 
     /**

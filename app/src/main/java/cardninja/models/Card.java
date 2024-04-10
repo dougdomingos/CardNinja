@@ -21,7 +21,7 @@ public class Card implements Comparable<Card> {
      * {@code fire}, {@code water}, {@code nature}, {@code wind}, {@code earth},
      * {@code lightning}
      */
-    private String element;
+    private Element element;
 
     /**
      * Creates a new card.
@@ -29,7 +29,7 @@ public class Card implements Comparable<Card> {
      * @param power   The power level of the card
      * @param element The element of the card
      */
-    public Card(int power, String element) {
+    public Card(int power, Element element) {
         setPower(power);
         setElement(element);
     }
@@ -41,15 +41,6 @@ public class Card implements Comparable<Card> {
      */
     public int getPower() {
         return this.power;
-    }
-
-    /**
-     * Returns the element of the card.
-     * 
-     * @return the element of the card
-     */
-    public String getElement() {
-        return this.element;
     }
 
     /**
@@ -69,16 +60,14 @@ public class Card implements Comparable<Card> {
     }
 
     /**
-     * Sets the element of the card to a specific value. The value must be
-     * one of the following: fire, water, nature, wind or earth
+     * Sets the element of the card.
      * 
      * @param element The element of the card
-     * @throws IllegalArgumentException Thrown if the passed element value is
-     *                                  invalid
+     * @throws IllegalArgumentException Thrown if the passed element is null
      */
-    private void setElement(String element) throws IllegalArgumentException {
-        if (element == null || !element.matches("^(fire|water|nature|wind|earth|lightning)$")) {
-            throw new IllegalArgumentException("Unknown element was passed!");
+    public void setElement(Element element) throws IllegalArgumentException {
+        if (element == null) {
+            throw new IllegalArgumentException("Element must not be null!");
         }
 
         this.element = element;
@@ -116,6 +105,6 @@ public class Card implements Comparable<Card> {
 
     @Override
     public String toString() {
-        return this.element.toUpperCase() + " - " + this.power;
+        return this.element.toString().toUpperCase() + " - " + this.power;
     }
 }
