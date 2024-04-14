@@ -42,6 +42,15 @@ public class Card implements Comparable<Card> {
     public int getPower() {
         return this.power;
     }
+    
+    /**
+     * Returns the element of the card.
+     * 
+     * @return the element of the card
+     */
+    public Element getElement() {
+        return this.element;
+    }
 
     /**
      * Sets the power level of the card to a specific value. The value must be
