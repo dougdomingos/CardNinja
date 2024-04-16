@@ -16,14 +16,7 @@ public class Utils {
      * @return An array containing all the cards of the game
      */
     public static Card[] generateCards() {
-        Element[] elements = new Element[] {
-                Element.FIRE,
-                Element.WATER,
-                Element.NATURE,
-                Element.WIND,
-                Element.EARTH,
-                Element.LIGHTNING
-        };
+        Element[] elements = Element.values();
         int[] powers = new int[] { 2, 5, 7 };
         Card[] cards = new Card[powers.length * elements.length];
 
