@@ -1,56 +1,73 @@
-# Carta Ninja
+# CardNinja
 
 <div style="width: 100%; display: flex; justify-content: center; margin-bottom: 32px">
   <img src="./public/banner.png" alt="Banner" />
 </div>
 
-Adaptação do jogo [Carta Ninja](https://github.com/Samurai-Turtles/Carta-Ninja)
-originalmente feito em Haskell para a disciplina de **Paradigmas de Linguagens de Programação**.
+Remake of the game [Carta Ninja](https://github.com/Samurai-Turtles/Carta-Ninja),
+initially developed as a project for the course of Computer Science at 
+[Federal University of Campina Grande (UFCG)](https://www.computacao.ufcg.edu.br/).
 
-Essa adaptação tem como objetivo exercitar minhas habilidades em Java, 
-especialmente no uso intensivo do terminal, padrões de design e organização de projetos.
+All credits go to the team of [Samurai Turtles](https://github.com/Samurai-Turtles).
 
-## Conteúdo
+## Table of Contents
 
-- [Descrição](#descrição)
-- [Regras do Jogo](#regras-do-jogo)
-- [Equipe](#equipe)
+- [Introduction](#introduction)
+- [Downloading and running](#downloading-and-running)
+- [Game rules and mechanics](#game-rules-and-mechanics)
 
-## Descrição
+## Introduction
 
-Carta Ninja é um jogo de cartas com uma temática de ninjas e samurais. O jogador
-pode utilizar cartas de diferentes elementos em batalhas contra a máquina. 
-Essas batalhas têm como principal objetivo incrementar o nível de faixa do 
-jogador, que inicia no nível de faixa branca, mas pode subir de nível 
-gradativamente ao vencer mais e mais batalhas, até alcançar o nível de faixa 
-preta.
+CardNinja is a card game where you use elemental powers to defeat your enemies.
+You have to fight against five powerful warriors and pave your way up to the 
+title of Grandmaster, using a variety of elemental cards trick and smash your
+opponents in your way to the top.
 
-## Regras do Jogo
+## Downloading and running
 
-O jogo funciona no sistema de campanhas (Runs), onde o jogador irá travar
-uma série de batalhas contra o Bot para elevar sua faixa. Cada faixa terá um
-grau de dificuldade e um chefe que o jogador deve vencer.
+Currently, the game is under development and is not playable yet. As soon as its
+avaliable, this section will be updated with the instructions on how to download
+and run CardNinja.
 
-As campanhas também tem um sistema de vidas. Quando o jogador perder uma 
-batalha, seu total de vidas é decrementado em 1. A campanha terminará quando
-o jogador vencer todos os chefes ou quando perder todas as suas vidas.
+## Game rules and mechanics
 
-Durante uma batalha, ambos jogador e Bot recebem as mesmas 15 cartas, em ordens
-diferentes. Para vencer seu adversário, você deve jogar uma carta que tenha um
-**valor de poder maior** ou um **elemento que seja dominante** sobre a carta do 
-oponente. Abaixo está a tabela de elementos das cartas e sua dominância sobre
-outros elementos:
+The game has a campaign system, where the player has to **defeat five warriors**
+to win. The battles against each warrior are **ten round matches**, where the 
+**player uses a deck of cards against the warrior's deck** to defeat them and to
+**score as much points as possible**. In each round, the cards chosen by the player and 
+the warrior are compared, and the **power of the winner's card is added to 
+its score**.
 
-![Relações Elementais](./public/elemental-relations.png)
+In CardNinja, **all cards have an elemental trait and a power value**. There are
+six elements (`fire`, `nature`, `wind`, `lightning`, `earth` and `water`) and
+three power levels (`2`, `5`, and `7`), which totals **18 unique cards**.
 
-A batalha acaba quando pelo menos uma das três condições abaixo for alcançada:
-- Um jogador obtiver **três vitórias seguidas** na partida
-- Um jogador obtiver **uma vitória com uma carta de cada elemento**
-- Se nenhuma das condições acima for alcançada ao final dos 10 rounds, **ganha aquele que obteve mais pontos durante a partida**
-  - Se houver empate nos pontos, **a partida será repetida sem perda de vidas** para
-    o jogador
+Players win rounds either by element relation or power level. *Each element has 
+a dominance over other two elements* and a *equivalence relation to one other*. 
+A player wins a round if:
 
-## Créditos
+- The element of their card has **dominance over the opponent's card**
+- The elements of the cards are equivalent (or equal), but their card has a 
+  **higher power level**
 
-O projeto original pertence à organização [Samurai Turtles](https://github.com/Samurai-Turtles),
-responsável por todo o processo de concepção e desenvolvimento do jogo.
+The elemental relations present in the game are illustrated below. **Colored 
+lines represent the dominant element of the relation** and **gray
+lines indicate that the elements are equivalent**.
+
+![Elemental Relations](./public/elemental-relations.jpg)
+
+The match ends at the end of ten rounds of if one of the following conditions 
+are met:
+
+- One player wins **three consecutive rounds**
+- One player wins **with five different elements in the same match**
+
+If none of those conditions are met by the end of the tenth round, the winner
+will be **the player with the highest score in the match**. After you win a 
+match, *the score of the match will be added to the campaign total score*.
+
+The game also has a **life system**: at the start of every new campaign, you 
+have **two extra lifes**. *Each match you lose decreases your lifes by one 
+point*. The campaign ends either by **defeating all the warriors** or by 
+**losing all your lifes**. After the campaign ends, **the game saves a record of
+ it in the Ranking tab**, which includes the campaign name and total score.
