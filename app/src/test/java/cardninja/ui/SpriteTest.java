@@ -42,20 +42,20 @@ public class SpriteTest {
      */
     @Test
     void testLoadScreenSprites() {
-        assertDoesNotThrow(() -> new Sprite("screens/battle"));
-        assertDoesNotThrow(() -> new Sprite("screens/campaign_end"));
-        assertDoesNotThrow(() -> new Sprite("screens/campaign_start"));
-        assertDoesNotThrow(() -> new Sprite("screens/card_draw"));
-        assertDoesNotThrow(() -> new Sprite("screens/card_lose"));
-        assertDoesNotThrow(() -> new Sprite("screens/card_win"));
-        assertDoesNotThrow(() -> new Sprite("screens/comparing"));
-        assertDoesNotThrow(() -> new Sprite("screens/credits"));
-        assertDoesNotThrow(() -> new Sprite("screens/defeat"));
-        assertDoesNotThrow(() -> new Sprite("screens/game_over"));
-        assertDoesNotThrow(() -> new Sprite("screens/match_draw"));
-        assertDoesNotThrow(() -> new Sprite("screens/ranking"));
-        assertDoesNotThrow(() -> new Sprite("screens/start"));
-        assertDoesNotThrow(() -> new Sprite("screens/victory"));
+        assertDoesNotThrow(() -> new Sprite("views/start"));
+        assertDoesNotThrow(() -> new Sprite("views/ranking"));
+        assertDoesNotThrow(() -> new Sprite("views/credits"));
+        assertDoesNotThrow(() -> new Sprite("views/new_campaign"));
+        assertDoesNotThrow(() -> new Sprite("views/battle"));
+        assertDoesNotThrow(() -> new Sprite("views/comparing"));
+        assertDoesNotThrow(() -> new Sprite("views/round_win"));
+        assertDoesNotThrow(() -> new Sprite("views/round_lose"));
+        assertDoesNotThrow(() -> new Sprite("views/round_draw"));
+        assertDoesNotThrow(() -> new Sprite("views/match_win"));
+        assertDoesNotThrow(() -> new Sprite("views/match_draw"));
+        assertDoesNotThrow(() -> new Sprite("views/match_lose"));
+        assertDoesNotThrow(() -> new Sprite("views/game_clear"));
+        assertDoesNotThrow(() -> new Sprite("views/game_over"));
     }
 
     /**
@@ -77,7 +77,7 @@ public class SpriteTest {
     @Test
     void testReplaceCharAtInvalidCoordinates() {
         Sprite testSprite = new Sprite("cards/fire");
-        
+
         assertThrows(IndexOutOfBoundsException.class, () -> testSprite.replaceCharAt(-1, 0, '$'));
         assertThrows(IndexOutOfBoundsException.class, () -> testSprite.replaceCharAt(999, 0, '$'));
         assertThrows(IndexOutOfBoundsException.class, () -> testSprite.replaceCharAt(0, -1, '$'));
