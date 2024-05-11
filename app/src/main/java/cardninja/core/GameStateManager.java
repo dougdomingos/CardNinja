@@ -18,8 +18,6 @@ import cardninja.states.CampaignState;
  */
 public class GameStateManager {
 
-    // TODO: Implement property for screens
-
     /**
      * The current campaign state. It's value is initialized at the start of
      * a new campaign.
