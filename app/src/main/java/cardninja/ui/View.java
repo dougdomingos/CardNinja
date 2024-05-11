@@ -33,13 +33,13 @@ public enum View {
     /**
      * Battle view. Displayed when the user is making its play.
      */
-    BATTLE("BATTLE_START", "views/battle"),
+    BATTLE("([6-8]|T|BATTLE_START)", "views/battle"),
 
     /**
      * Comparing view. Displayed during card comparison, before showing the round
      * results.
      */
-    COMPARING("([1-8]|T)", "views/comparing"),
+    COMPARING("[1-5]", "views/comparing"),
 
     /**
      * Round end view. Displayed when the user wins the current round.

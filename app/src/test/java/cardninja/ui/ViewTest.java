@@ -76,6 +76,11 @@ public class ViewTest {
     void testInputMatchesKeyBattle() {
         assertTrue(View.BATTLE.inputMatchesKey("battle_start"));
         assertTrue(View.BATTLE.inputMatchesKey("BATTLE_START"));
+        assertTrue(View.BATTLE.inputMatchesKey("6"));
+        assertTrue(View.BATTLE.inputMatchesKey("7"));
+        assertTrue(View.BATTLE.inputMatchesKey("8"));
+        assertTrue(View.BATTLE.inputMatchesKey("t"));
+        assertTrue(View.BATTLE.inputMatchesKey("T"));
         assertFalse(View.BATTLE.inputMatchesKey("abc"));
         assertFalse(View.BATTLE.inputMatchesKey("123"));
         assertFalse(View.BATTLE.inputMatchesKey(""));
@@ -92,13 +97,8 @@ public class ViewTest {
         assertTrue(View.COMPARING.inputMatchesKey("3"));
         assertTrue(View.COMPARING.inputMatchesKey("4"));
         assertTrue(View.COMPARING.inputMatchesKey("5"));
-        assertTrue(View.COMPARING.inputMatchesKey("6"));
-        assertTrue(View.COMPARING.inputMatchesKey("7"));
-        assertTrue(View.COMPARING.inputMatchesKey("8"));
-        assertTrue(View.COMPARING.inputMatchesKey("t"));
-        assertTrue(View.COMPARING.inputMatchesKey("T"));
-        assertFalse(View.COMPARING.inputMatchesKey("1t"));
-        assertFalse(View.COMPARING.inputMatchesKey("t1"));
+        assertFalse(View.COMPARING.inputMatchesKey("abc"));
+        assertFalse(View.COMPARING.inputMatchesKey("123"));
         assertFalse(View.COMPARING.inputMatchesKey(""));
         assertFalse(View.COMPARING.inputMatchesKey(" "));
     }
